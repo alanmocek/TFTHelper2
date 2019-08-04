@@ -4,11 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vms="clr-namespace:TFTHelper2.Client.ViewModels"
-        xmlns:local="clr-namespace:TFTHelper2.Client"
+        xmlns:local="clr-namespace:TFTHelper2.Client.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" DataContext="{Binding Path=Main, Source={StaticResource Localizator}}">
+        Title="TFT Helper" Height="450" Width="300" DataContext="{Binding Path=Main, Source={StaticResource Localizator}}" Topmost="True" MinWidth="240">
 
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                <GradientStop Color="#FF00484F" Offset="0"/>
+                <GradientStop Color="#FF000B11" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <ContentPresenter Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

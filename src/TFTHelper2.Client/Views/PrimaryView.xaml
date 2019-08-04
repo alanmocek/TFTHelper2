@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="TFTHelper2.Client.Views.PrimaryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TFTHelper2.Client.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="24"/>
+        </Grid.RowDefinitions>
+
+        <!-- TOP PANEL -->  
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="36"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- ITEMS BUTTON -->
+            <Button Grid.Column="0" Content="ITEMS" Style="{StaticResource ButtonBase}" Margin="4" Command="{Binding ChangeViewCommand}" CommandParameter="items"/>
+
+            <!-- CLASSES BUTTON -->
+            <Button Grid.Column="1" Content="CLASSES" Style="{StaticResource ButtonBase}" Margin="4" Command="{Binding ChangeViewCommand}" CommandParameter="classes"/>
+
+            <!-- ORIGINS BUTTON -->
+            <Button Grid.Column="2" Content="ORIGINS" Style="{StaticResource ButtonBase}" Margin="4" Command="{Binding ChangeViewCommand}" CommandParameter="origins"/>
+
+            <!-- UPDATE BUTTON -->
+            <Button Grid.Column="3" Content="U" Style="{StaticResource ButtonBase}" Margin="4" Command="{Binding UpdateCommand}"/>
+        </Grid>
+
+        <ContentPresenter Grid.Row="1" Content="{Binding CurrentViewModel}"/>
+
+        <Grid Grid.Row="2">
+            <TextBlock Foreground="#FFE373" Margin="4" FontSize="10" ToolTip="TFT Helper was created under Riot Games' &quot;Legal Jibber Jabber&quot; policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project." Text="TFT Helper was created under Riot Games' &quot;Legal Jibber Jabber&quot; policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project." TextWrapping="Wrap"/>
+        </Grid>
+    </Grid>
+</UserControl>

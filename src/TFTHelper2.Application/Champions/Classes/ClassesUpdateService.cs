@@ -39,7 +39,7 @@ namespace TFTHelper2.Application.Champions.Classes
                 classes.Add(pair.Value);
             }
 
-            await _classesProviderService.SaveClassesAsync(classes);
+            await _classesProviderService.SaveAsync(classes);
         }
     }
 }

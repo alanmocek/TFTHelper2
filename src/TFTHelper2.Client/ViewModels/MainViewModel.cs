@@ -9,31 +9,51 @@ using TFTHelper2.Application.ApiReader;
 using Ninject;
 using TFTHelper2.Application.Champions;
 using TFTHelper2.Application.Champions.Classes;
+using System.Windows.Input;
+using TFTHelper2.Application.Items;
 
 namespace TFTHelper2.Client.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel : ViewModelBase
     {
+        private readonly StartViewViewModel _startViewViewModel;
+        private readonly PrimaryViewViewModel _primaryViewViewModel;
 
-        private readonly IClassesUpdateService _classesUpdateService;
-
-        private readonly IClassesProviderService _classesProviderService;
+        private ViewModelBase currentViewModel;
+        public ViewModelBase CurrentViewModel
+        {
+            get => currentViewModel;
+            set
+            {
+                currentViewModel = value;
+                UpdateProperty(nameof(CurrentViewModel));
+            }
+        }
 
         public MainViewModel()
         {
-            Bootstraper.Init();
+            _startViewViewModel = new StartViewViewModel();
+            _startViewViewModel.Continued += OnContinued;
 
-            _classesUpdateService = Bootstraper.Kernel.Get<IClassesUpdateService>();
+            _primaryViewViewModel = new PrimaryViewViewModel();
 
-            _classesProviderService = Bootstraper.Kernel.Get<IClassesProviderService>();
+            CurrentViewModel = _startViewViewModel;
 
-            Testuej2();
+            // to remove
+
+            costam();
         }
 
-        private async void Testuej2()
+        private void OnContinued()
         {
-            var list = await _classesProviderService.GetClassesAsync();
-            //await _classesUpdateService.UpdateAsync();
+            CurrentViewModel = _primaryViewViewModel;
+        }
+
+        private async Task costam()
+        {
+            await Bootstraper.Kernel.Get<IItemsUpdateService>().UpdateAsync();
+
+            var items = await Bootstraper.Kernel.Get<IItemsProviderService>().GetAsync();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace TFTHelper2.Application.Champions.Classes
     public class ClassesProviderService : IClassesProviderService
     {
         /// <summary>
-        /// Without .json
+        /// Without file format
         /// </summary>
         private readonly string _filePath;
         private readonly IDataSaveReadService _dataSaveReadService;
@@ -23,19 +23,24 @@ namespace TFTHelper2.Application.Champions.Classes
             _filePath = filePath;
         }
 
-        public async Task<List<ViewModelClass>> GetClassesAsync()
+        public async Task<List<ViewModelClass>> GetAsync()
         {
             var classesDto = await _dataSaveReadService.ReadFromFileAsync<ClassDto>(_filePath);
 
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<ClassDto, ViewModelClass>());
-            IMapper mapper = config.CreateMapper();
+            var configClasses = new MapperConfiguration(cfg => 
+            {
+                cfg.CreateMap<ClassDto, ViewModelClass>();
+                cfg.CreateMap<BonusDto, ViewModelBonus>();
+                });
+            IMapper mapperClasses = configClasses.CreateMapper();
 
-            var classesViewModel = mapper.Map<List<ClassDto>, List<ViewModelClass>>(classesDto);
 
-            return classesViewModel;
+            var classViewModels = mapperClasses.Map<List<ClassDto>, List<ViewModelClass>>(classesDto);
+
+            return classViewModels;
         }
 
-        public async Task SaveClassesAsync(List<ClassDto> classes)
+        public async Task SaveAsync(List<ClassDto> classes)
         {
             await _dataSaveReadService.SaveToFileAsync(classes, _filePath);
         }

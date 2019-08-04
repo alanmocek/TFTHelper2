@@ -8,7 +8,7 @@ namespace TFTHelper2.Application.Champions.Classes
 {
     public interface IClassesProviderService
     {
-        Task<List<ViewModelClass>> GetClassesAsync();
-        Task SaveClassesAsync(List<ClassDto> classes);
+        Task<List<ViewModelClass>> GetAsync();
+        Task SaveAsync(List<ClassDto> classes);
     }
 }

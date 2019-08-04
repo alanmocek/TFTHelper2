@@ -11,6 +11,6 @@ namespace TFTHelper2.Application.Champions.Classes
         public string Key { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public ICollection<BonusDto> Bonuses { get; set; }
+        public List<BonusDto> Bonuses { get; set; }
     }
 }

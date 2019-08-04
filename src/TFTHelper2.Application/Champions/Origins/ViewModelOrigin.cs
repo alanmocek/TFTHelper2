@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TFTHelper2.Application.Champions.Classes
+namespace TFTHelper2.Application.Champions.Origins
 {
-    public class ViewModelClass
+    public class ViewModelOrigin
     {
         public string Key { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<ViewModelBonus> Bonuses { get; set; } = new List<ViewModelBonus>();
+        public List<ViewModelBonus> Bonuses { get; set; }
     }
 }

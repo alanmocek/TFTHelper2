@@ -2,12 +2,42 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:TFTHelper2.Client"
+             xmlns:vms="clr-namespace:TFTHelper2.Client.ViewModels"
+             xmlns:vmsPrimary="clr-namespace:TFTHelper2.Client.ViewModels.PrimaryViewViewModels"
+             xmlns:views="clr-namespace:TFTHelper2.Client.Views"
+             xmlns:viewsPrimary="clr-namespace:TFTHelper2.Client.Views.PrimaryViews"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-
+            
             <local:ViewModelLocalicator x:Key="Localizator"/>
 
+            <!-- Main Window -->
+            <DataTemplate DataType="{x:Type vms:StartViewViewModel}">
+                <views:StartView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vms:PrimaryViewViewModel}">
+                <views:PrimaryView/>
+            </DataTemplate>
+
+
+            <!-- Primary View -->
+            <DataTemplate DataType="{x:Type vmsPrimary:ClassesViewViewModel}">
+                <viewsPrimary:ClassesView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmsPrimary:OriginsViewViewModel}">
+                <viewsPrimary:OriginsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vmsPrimary:ItemsViewViewModel}">
+                <viewsPrimary:ItemsView/>
+            </DataTemplate>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Resources/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -14,6 +14,8 @@ namespace TFTHelper2.Client
 
         public ViewModelLocalicator()
         {
+            Bootstraper.Init();
+
             main = new MainViewModel();
         }
     }

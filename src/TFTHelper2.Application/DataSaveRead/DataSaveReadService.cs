@@ -9,11 +9,18 @@ namespace TFTHelper2.Application.DataSaveRead
 {
     public class DataSaveReadService : IDataSaveReadService
     {
-        private readonly string mainPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+        private readonly string _mainPath;
+
+        public DataSaveReadService(string mainPath)
+        {
+            _mainPath = mainPath;
+
+            System.IO.Directory.CreateDirectory(_mainPath);
+        }
 
         public async Task<List<T>> ReadFromFileAsync<T>(string path)
         {
-            path = $"{mainPath}\\{path}";
+            path = $"{_mainPath}\\{path}";
 
             List<T> items = new List<T>();
 
@@ -29,9 +36,7 @@ namespace TFTHelper2.Application.DataSaveRead
 
         public async Task SaveToFileAsync<T>(List<T> items, string path)
         {
-            path = $"{mainPath}\\{path}";
-
-            Console.WriteLine(path);
+            path = $"{_mainPath}\\{path}";
 
             string json = Newtonsoft.Json.JsonConvert.SerializeObject(items);
 

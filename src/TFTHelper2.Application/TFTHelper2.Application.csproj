@@ -59,14 +59,28 @@
     <Compile Include="Champions\Classes\ClassesUpdateService.cs" />
     <Compile Include="Champions\Classes\IClassesProviderService.cs" />
     <Compile Include="Champions\Classes\IClassesUpdateService.cs" />
-    <Compile Include="Champions\OriginDto.cs" />
+    <Compile Include="Champions\Origins\IOriginsProviderService.cs" />
+    <Compile Include="Champions\Origins\IOriginsUpdateService.cs" />
+    <Compile Include="Champions\Origins\OriginDto.cs" />
     <Compile Include="Champions\Classes\ViewModelClass.cs" />
+    <Compile Include="Champions\Origins\OriginsProviderService.cs" />
+    <Compile Include="Champions\Origins\OriginsUpdateService.cs" />
+    <Compile Include="Champions\Origins\ViewModelOrigin.cs" />
+    <Compile Include="Champions\ViewModelBonus.cs" />
     <Compile Include="DataSaveRead\DataSaveReadService.cs" />
     <Compile Include="DataSaveRead\IDataSaveReadService.cs" />
+    <Compile Include="Items\IItemsProviderService.cs" />
+    <Compile Include="Items\IItemsUpdateService.cs" />
+    <Compile Include="Items\ItemDto.cs" />
+    <Compile Include="Items\ItemsProviderService.cs" />
+    <Compile Include="Items\ItemsUpdateService.cs" />
+    <Compile Include="Items\ViewModelItem.cs" />
+    <Compile Include="Items\ViewModelRecipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
