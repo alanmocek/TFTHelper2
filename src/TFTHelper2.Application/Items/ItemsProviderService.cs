@@ -35,7 +35,12 @@ namespace TFTHelper2.Application.Items
 
             var itemsViewModels = mapper.Map<List<ItemDto>, List<ViewModelItem>>(itemsDto);
 
-            foreach(ViewModelItem item in itemsViewModels)
+            for (int i = 0; i < itemsViewModels.Count; i++)
+            {
+                itemsViewModels[i].Order = i;
+            }
+
+            foreach (ViewModelItem item in itemsViewModels)
             {
                 item.CreateRecipes(itemsViewModels);
             }

@@ -14,6 +14,9 @@ namespace TFTHelper2.Application.Items
         public int Depth { get; set; }
         public List<string> BuildsFrom { get; set; } = new List<string>();
         public List<ViewModelRecipe> Recipes { get; set; } = new List<ViewModelRecipe>();
+        public bool IsHiden { get; set; }
+        public string IconPath => $"/Resources/ItemsIcons/{Key}.png";
+        public int Order { get; set; }
 
         public void CreateRecipes(List<ViewModelItem> items)
         {
@@ -45,6 +48,8 @@ namespace TFTHelper2.Application.Items
                     Recipes.Add(recipe);
                 }
             }
+
+            Recipes = Recipes.OrderBy(r => r.AdditionalItem.Order).ToList();
         }
     }
 }

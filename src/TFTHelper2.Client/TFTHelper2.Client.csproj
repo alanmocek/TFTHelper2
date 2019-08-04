@@ -158,5 +158,51 @@
   <ItemGroup>
     <Resource Include="Resources\tftHelperIcon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\ItemsIcons\bfsword.png" />
+    <Resource Include="Resources\ItemsIcons\bladeoftheruinedking.png" />
+    <Resource Include="Resources\ItemsIcons\bloodthirster.png" />
+    <Resource Include="Resources\ItemsIcons\chainvest.png" />
+    <Resource Include="Resources\ItemsIcons\cursedblade.png" />
+    <Resource Include="Resources\ItemsIcons\darkin.png" />
+    <Resource Include="Resources\ItemsIcons\dragonsclaw.png" />
+    <Resource Include="Resources\ItemsIcons\forceofnature.png" />
+    <Resource Include="Resources\ItemsIcons\frozenheart.png" />
+    <Resource Include="Resources\ItemsIcons\frozenmallet.png" />
+    <Resource Include="Resources\ItemsIcons\giantsbelt.png" />
+    <Resource Include="Resources\ItemsIcons\guardianangel.png" />
+    <Resource Include="Resources\ItemsIcons\guinsoosrageblade.png" />
+    <Resource Include="Resources\ItemsIcons\hextechgunblade.png" />
+    <Resource Include="Resources\ItemsIcons\hush.png" />
+    <Resource Include="Resources\ItemsIcons\infinityedge.png" />
+    <Resource Include="Resources\ItemsIcons\ionicspark.png" />
+    <Resource Include="Resources\ItemsIcons\knightsvow.png" />
+    <Resource Include="Resources\ItemsIcons\locketoftheironsolari.png" />
+    <Resource Include="Resources\ItemsIcons\ludensecho.png" />
+    <Resource Include="Resources\ItemsIcons\morellonomicon.png" />
+    <Resource Include="Resources\ItemsIcons\needlesslylargerod.png" />
+    <Resource Include="Resources\ItemsIcons\negatroncloak.png" />
+    <Resource Include="Resources\ItemsIcons\phantomdancer.png" />
+    <Resource Include="Resources\ItemsIcons\rabadonsdeathcap.png" />
+    <Resource Include="Resources\ItemsIcons\rapidfirecannon.png" />
+    <Resource Include="Resources\ItemsIcons\recurvebow.png" />
+    <Resource Include="Resources\ItemsIcons\redbuff.png" />
+    <Resource Include="Resources\ItemsIcons\redemption.png" />
+    <Resource Include="Resources\ItemsIcons\runaanshurricane.png" />
+    <Resource Include="Resources\ItemsIcons\seraphsembrace.png" />
+    <Resource Include="Resources\ItemsIcons\spatula.png" />
+    <Resource Include="Resources\ItemsIcons\spearofshojin.png" />
+    <Resource Include="Resources\ItemsIcons\statikkshiv.png" />
+    <Resource Include="Resources\ItemsIcons\swordbreaker.png" />
+    <Resource Include="Resources\ItemsIcons\swordofthedivine.png" />
+    <Resource Include="Resources\ItemsIcons\tearofthegoddess.png" />
+    <Resource Include="Resources\ItemsIcons\thornmail.png" />
+    <Resource Include="Resources\ItemsIcons\titanichydra.png" />
+    <Resource Include="Resources\ItemsIcons\warmogsarmor.png" />
+    <Resource Include="Resources\ItemsIcons\youmuusghostblade.png" />
+    <Resource Include="Resources\ItemsIcons\yuumi.png" />
+    <Resource Include="Resources\ItemsIcons\zekesherald.png" />
+    <Resource Include="Resources\ItemsIcons\zephyr.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

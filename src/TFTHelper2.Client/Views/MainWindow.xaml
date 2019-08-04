@@ -6,7 +6,7 @@
         xmlns:vms="clr-namespace:TFTHelper2.Client.ViewModels"
         xmlns:local="clr-namespace:TFTHelper2.Client.Views"
         mc:Ignorable="d"
-        Title="TFT Helper" Height="450" Width="300" DataContext="{Binding Path=Main, Source={StaticResource Localizator}}" Topmost="True" MinWidth="240">
+        Title="TFT Helper" Height="450" Width="300" DataContext="{Binding Path=Main, Source={StaticResource Localizator}}" Topmost="True" MinWidth="240" UseLayoutRounding="True">
 
     <Grid>
         <Grid.Background>

@@ -5,8 +5,105 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TFTHelper2.Client.Views.PrimaryViews"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+             d:DesignHeight="400" d:DesignWidth="300">
+    <Grid Name="root">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <ItemsControl Margin="4" ItemsSource="{Binding BasicItems}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Height="36" Width="36" ToolTip="{Binding Name}" Margin="4" Command="{Binding Path = DataContext.ChangeItemVisibilityCommand, ElementName= root}" CommandParameter="{Binding}">
+                        <Image Source="{Binding IconPath}"/>
+
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ButtonBase}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsHiden}" Value="True">
+                                        <Setter Property="Opacity" Value="0.4"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <ScrollViewer Grid.Row="1">
+            <ItemsControl ItemsSource="{Binding SelectedItems}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Margin="4" CornerRadius="4" Background="#66000000">
+                            <StackPanel Orientation="Vertical" Margin="4">
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border CornerRadius="4" BorderThickness="1" BorderBrush="#737AFF" Margin="0,0,4,0">
+                                        <Image Source="{Binding IconPath}" Width="36" Height="36"/>
+                                    </Border>
+
+                                    <StackPanel Orientation="Vertical" Grid.Column="1">
+                                        <TextBlock Text="{Binding Name}" Foreground="#737AFF" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding Bonus}" Margin="4" Foreground="#FFE373" TextWrapping="Wrap"/>
+                                    </StackPanel>
+                                </Grid>
+
+                                
+                                
+
+                                <ItemsControl Margin="4" ItemsSource="{Binding Recipes}">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Vertical"/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid Margin="4">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="auto"/>
+                                                    <ColumnDefinition Width="auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Border Grid.Column="0"  CornerRadius="4" BorderThickness="1" BorderBrush="#FFE373" Margin="0,0,4,0" VerticalAlignment="Top">
+                                                    <Image Source="{Binding AdditionalItem.IconPath}" Width="28" Height="28"/>
+                                                </Border>
+
+                                                <Border Grid.Column="1"  CornerRadius="4" BorderThickness="1" BorderBrush="#CBCC47" Margin="0,0,4,0" VerticalAlignment="Top">
+                                                    <Image Source="{Binding ResultItem.IconPath}" Width="28" Height="28"/>
+                                                </Border>
+
+                                                <TextBlock Grid.Column="2" Text="{Binding ResultItem.Bonus}" Foreground="#CBCC47" FontWeight="Medium" TextWrapping="Wrap" Margin="4"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
     </Grid>
 </UserControl>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TFTHelper2.Application.ApiReader;
 
@@ -28,6 +29,9 @@ namespace TFTHelper2.Application.Items
 
             foreach(KeyValuePair<string, ItemDto> pair in itemsDictionary)
             {
+                pair.Value.Bonus = Regex.Replace(pair.Value.Bonus, "<.*?>", String.Empty);
+
+
                 items.Add(pair.Value);
             }
 

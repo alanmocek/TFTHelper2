@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using TFTHelper2.Application.Champions.Classes;
 using TFTHelper2.Application.Champions.Origins;
+using TFTHelper2.Application.Items;
 using TFTHelper2.Client.ViewModels.PrimaryViewViewModels;
 
 namespace TFTHelper2.Client.ViewModels
@@ -43,6 +44,7 @@ namespace TFTHelper2.Client.ViewModels
 
             Updated += _originsViewViewModel.OnUpdated;
             Updated += _classesViewViewModel.OnUpdated;
+            Updated += _itemsViewViewModel.OnUpdated;
         }
 
         public ICommand ChangeViewCommand { get; set; }
@@ -80,6 +82,7 @@ namespace TFTHelper2.Client.ViewModels
         {
             await Bootstraper.Kernel.Get<IClassesUpdateService>().UpdateAsync();
             await Bootstraper.Kernel.Get<IOriginsUpdateService>().UpdateAsync();
+            await Bootstraper.Kernel.Get<IItemsUpdateService>().UpdateAsync();
 
             Updated?.Invoke();
         }
